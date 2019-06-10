@@ -80,10 +80,10 @@ SocialSharing.prototype.shareViaWhatsAppToPhone = function (phone, message, file
   cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareViaWhatsAppToPhone"), "SocialSharing", "shareViaWhatsApp", [message, null, this._asArray(fileOrFileArray), url, null, phone]);
 };
 
-SocialSharing.prototype.shareViaSMS = function (options, phonenumbers, successCallback, errorCallback) {
+SocialSharing.prototype.shareViaSMS = function (options, file, phonenumbers, successCallback, errorCallback) {
   var opts = options;
   if (typeof options === "string") {
-    opts = {"message":options}; // for backward compatibility as the options param used to be the message
+    opts = {"message":options, "image":file}; // for backward compatibility as the options param used to be the message
   }
   cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareViaSMS"), "SocialSharing", "shareViaSMS", [opts, phonenumbers]);
 };
