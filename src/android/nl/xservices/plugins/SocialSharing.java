@@ -631,7 +631,8 @@ public class SocialSharing extends CordovaPlugin {
           intent.setData(Uri.parse("smsto:" + (notEmpty(phonenumbers) ? phonenumbers : "")));
         } else {
           intent = new Intent(Intent.ACTION_VIEW);
-          intent.setType("vnd.android-dir/mms-sms");
+          //intent.setType("vnd.android-dir/mms-sms");
+	  intent.setType("text/x-vcard");
           if (phonenumbers != null) {
             intent.putExtra("address", phonenumbers);
           }
